@@ -6,6 +6,9 @@ let expression = "";
     button.addEventListener("click",()=>{
         const value = button.textContent;
         switch(value){
+            case"C":{
+                value = "";
+            }
             
         }
     })
