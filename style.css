@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+  width: 240px;
+  height: 45vh;
+}
+#number {
+  margin-bottom: 13px;
+  padding: 8px;
+  width: 220px;
+  border-radius: 20px;
+}
+.box {
+  background-color: rgb(236, 234, 234);
+  padding: 30px;
+}
+.container button {
+  border-radius: 40px;
+  background-color: white;
+}
+.container button:hover {
+  background-color: rgb(180, 179, 179);
+}
