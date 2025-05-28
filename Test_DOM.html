@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Practice</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+      .box{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10rem;
+        align-items: center;
+      }
+      .box1 {
+        width: 10rem;
+        height: 10rem;
+        background-color:red;
+        border-radius: 50%;
+        border: 0.1rem solid black;
+      }
+      .box2 {
+        width: 10rem;
+        height: 10rem;
+        background-color:rgb(200, 200, 205);
+        border-radius: 50%;
+        border: 0.1rem solid black;
+      }
+      button {
+        padding: 1rem 2rem;
+        background-color: rgb(219, 198, 147);
+        border-radius: 2rem;
+      }
+      #inputColor{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+        <div id="inputColor">
+      <div class="box1" id="b1"></div>
+      <input id="userInput" type="text" placeholder="
+      Enter the color">
+      </div>
+      <button id="btn">Exchange</button>
+
+      <div class="box2" id="b2"></div>
+    </div>
+    <script>
+        const userInput = document.getElementById("userInput");
+        const colorBox1 = document.getElementById("b1");
+        userInput.addEventListener("keyup", (event)=>{
+            if(event.key === "Enter"){
+            const value = userInput.value;
+            colorBox1.style.backgroundColor = value;
+            }
+        })
+    const button = document.getElementById("btn");
+    
+    const colorBox2 = document.getElementById("b2");
+     button.addEventListener("click",()=>{
+        const value = window.getComputedStyle(colorBox1).backgroundColor;
+        colorBox1.style.backgroundColor = window.getComputedStyle(colorBox2).backgroundColor;
+        colorBox2.style.backgroundColor = value;
+        
+
+     })
+    </script>
+  </body>
+</html>
