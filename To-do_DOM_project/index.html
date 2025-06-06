@@ -5,100 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do-List</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      .list-app {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background-color: rgb(240, 238, 236);
-        width: 100vw;
-        height: 100vh;
-        padding: 0;
-        margin: 0;
-      }
-      .container {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: 20vw;
-        height: 60vh;
-        padding: 2rem;
-        border-radius: 0.5rem;
-        background: linear-gradient(to bottom, #3643da, #9694f8);
-      }
-      .text {
-        border: none;
-        border-bottom: 2px solid rgb(97, 93, 93); /* underline */
-        padding-bottom: 5px; /* space between text and underline */
-        margin-bottom: 10px;
-        background-color: rgb(186, 186, 243);
-        color: black;
-        width: 18vw;
-        height: auto;
-        padding: 0.2rem;
-        height: 1.8rem;
-      }
-      .btn {
-        background-color: navy;
-        color: white;
-        border-radius: 0.3rem;
-        width: 18.5vw;
-        height: 7vh;
-        margin-top: 1rem;
-      }
-      .btn:hover {
-        background-color: rgb(173, 173, 185);
-        color: white;
-        border-radius: 0.3rem;
-        width: 18vw;
-        height: 6vh;
-        margin-top: 1rem;
-      }
-      .highlight {
-        background-color: white;
-        color: Black;
-        border-radius: 0.3rem;
-        width: 14vw;
-        height: 5vh;
-        margin-top: 1rem;
-        list-style: none;
-        text-align: start;
-       padding: 0.1rem;
-       position: relative;
-        
-      }
-      .remove {
-        display: flex;
-        background-color: red;
-        color: Black;
-        border-radius: 0.3rem;
-        width: 3vw;
-        height: 4.5vh;
-        margin-top: 1rem;
-        justify-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0.1rem;
-        position:absolute;
-        top: -0.8rem;
-        left:-3.5rem;
-      }
-
-    </style>
   </head>
   <body>
     <div class="list-app">
-      <div id="container" class="container">
+      <div id="list-container" class="list-container">
         <input id="text" class="text" placeholder="Enter your task" />
         <button id="btn" class="btn">Add</button>
-        <ul id="list-items"></ul>
+        <ul id="list-items">
+        </ul>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="javascript.js"></script>
   </body>
 </html>
