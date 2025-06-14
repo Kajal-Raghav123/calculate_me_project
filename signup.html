@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Yourself</title>
+    <style>
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="signup" class="form-container">
+      <div class="name-container">
+        <label for="">Name</label>
+        <input
+          type="text"
+          name="Username"
+          id="Username"
+          placeholder="Enter your name..."
+        />
+      </div>
+      <div class="email-container">
+        <label for="">Email</label>
+        <input
+          type="text"
+          id="email"
+          class="email"
+          placeholder="Enter your email..."
+        />
+      </div>
+      <div class="password-container">
+        <label for="">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="password"
+          placeholder="Password"
+        />
+      </div>
+      <button id="btn">Submit</button>
+      <p class="errorMessage"></p>
+    </form>
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("Username").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const error = document.querySelector(".errorMessage");
+
+        if (!name || !email || !password) {
+          error.innerText = "All fields are required";
+          return;
+        }
+
+        const validemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!validemail.test(email)) {
+          error.innerText = "Please Enter the valid email";
+          return;
+        }
+
+        if (password.length < 6) {
+          error.innerText = "Password should have more than 6 characters";
+          return;
+        }
+
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        const isExist = users.find((user) => user.email === email);
+        if (isExist) {
+          error.innerText = "Email already Exists";
+          return;
+        }
+
+        users.push({ name, email, password });
+        localStorage.setItem("users", JSON.stringify(users));
+
+        alert("Signup Successful");
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>
